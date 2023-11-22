@@ -1,0 +1,2 @@
+FILA_PROCESSOS = []
+SWAP = []
