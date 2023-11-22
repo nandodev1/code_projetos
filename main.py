@@ -1,18 +1,17 @@
-FILA_PROCESSOS = []
-SWAP = []
+filaProcesso = []
+swap = []
+# Colunas da tabela inicioParticao, tamParticao, (objeto) processo
+tabelaParticao = []
 
 memoria = None
 
-class Processo:
-    def __init__(self, id:int, nome:str, tamanho:int):
-        self.id = id
-        self.nome = nome
-        self.tamanho = nome
+class Particao:
+    def __init__( self, inicio:int, tamanho:int, processo:Proce):
 
+# tamanho da memoria é temcomounidade basica kilobytes
 class Memoria:
-    def __init__( self, tamanhoMemoria:int, unidade:str):
+    def __init__( self, tamanhoMemoria:int):
         self.tamanho = tamanhoMemoria
-        self.unidade = unidade
 
 class TipoAlocacao():
     def __init__(self) -> None:
@@ -34,16 +33,20 @@ class Alocador:
 class Controle:
     
     def criarProcesso(  self, id:str, tamanho:int, nome:str):
-        FILA_PROCESSOS.append(Processo(id, tamanho, nome))
+        filaProcesso.append(Processo(id, tamanho, nome))
     
-    # Devolve falso casohouver algum erro
-    def alocarProcesso(  self, Processo) -> bool:
+    def iniciaMemoria( self, tamanho:int):
+        memoria = Memoria(tamanho)
+
+    def iniciaTabelaParticao() -> None:
         pass
 
-    def iniciaMemoria( self, tamanho:int, unidade:str):
-        memoria = Memoria()
+    def criParticao(  self, tamanho:int, unidade:str):
+        pass
 
-    def criParticaoTamParticao(  self, tamanho:int, unidade:str):
+    # Devolve falso caso houver algum erro
+    def alocarProcesso(  self, Processo) -> bool:
+        #verifica setodamemoria está particionada
         pass
 
     def iniciaAlocador(self):
@@ -57,6 +60,6 @@ class Controle:
 
 ###################################################################
 def main():
-    print(FILA_PROCESSOS)
+    print(filaProcesso)
 
 main()
