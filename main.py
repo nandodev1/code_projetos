@@ -10,6 +10,10 @@ memoria:Memoria = None
 
 class Controle:
     
+    def __init__(self):
+        # Inicializa locador
+        self.alocador = Alocador( 'FSR')
+
     def criarProcesso(  self, id:str, tamanho:int, nome:str):
         filaProcesso.append(Processo(id, tamanho, nome))
     
@@ -29,12 +33,8 @@ class Controle:
         return 0
 
     # Devolve falso caso houver algum erro
-    def alocarProcesso(  self, Processo) -> bool:
-        #verifica setodamemoria está particionada
-        pass
-
-    def iniciaAlocador( self):
-        pass
+    def alocarProcesso(  self, processo: Processo, particoes) -> bool:
+        self.alocador.aloca( processo, particoes)
 
     def proxPasso( self):
         pass
@@ -45,11 +45,22 @@ class Controle:
 ###################################################################
 def main():
     controle = Controle()
-    controle.iniciaMemoria(10)
+    controle.iniciaMemoria(15)
     controle.criaParticao(2)
     controle.criaParticao(5)
     controle.criaParticao(3)
+    controle.criaParticao(4)
+    controle.criaParticao(1)
+
+    filaProcesso.append( Processo( 1,'cmd', 5), memoria.particoes)
+    filaProcesso.append( Processo( 2,'sh', 3), memoria.particoes)
+
     saida.inprimeMemoria(memoria)
+
+    
+
+    saida.inprimeMemoria(memoria)
+    
     pass
 
 main()

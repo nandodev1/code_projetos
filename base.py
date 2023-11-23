@@ -46,9 +46,18 @@ class TipoAlocacao():
         def aloca(self) -> bool:
             pass
 
+# Detecção defragmentação interna/externa
 class Alocador:
-    def __init__( self, algoritimo):
-        self.AlgoritimoAlocacao = algoritimo
+    def __init__( self, algoritimo:str):
+        self.algoritimoAlocacao = algoritimo
+
+    def aloca(self, processo:Processo, particoes):
+        if self.algoritimoAlocacao == 'FSR':
+            for par in particoes:
+                if par.processo == None and par.tamanho >= processo.tamanho:
+                    par.processo = processo
+                    break
+                
 
     def enviaSwap(self):
         pass
