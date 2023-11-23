@@ -1,0 +1,18 @@
+principal
+
+#realizar verificação se existe partição com tamanho suficiente ao processo
+#criar novo algolritmo para alocação de memoria mcom a melhor escolha
+#implementação do terceiro algoritimo de alocação
+#algoritimo liberador de swap
+#criar indicador de fragmentação externa
+#criar exibição de fragmentação interna
+
+bugs
+
+#algolritmo de melhor escolha 'MEA' está agindo como oalgoritimo de primeia escolha(PEA)
+
+opicional
+
+#criar interface de iteração com o usuario
+#Criar exibição grafica mais amistosa
+#Transferir a classe controle para um modulo separado

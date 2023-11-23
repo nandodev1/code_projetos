@@ -1,5 +1,4 @@
 from base import *
-import saida
 
 filaProcesso = []
 swap = []
@@ -16,11 +15,10 @@ class Controle:
         self.tamMaiorParticao = None
 
     def calculaTamMaiorParticao( self):
-        maiorAtual = 0
+        maiorAtual = memoria.tamanho
         for part in memoria.particoes:
             if part.tamanho > maiorAtual:
                 maiorAtual = part.tamanho
-        self.tamMaiorParticao = maiorAtual
 
     def criarProcesso(  self, id:str, tamanho:int, nome:str):
         #simplifica o uso da fumção pop
@@ -54,28 +52,3 @@ class Controle:
 
     def getInfo( self):
         pass
-
-###################################################################
-def main():
-
-    controle = Controle('MEA')
-    controle.iniciaMemoria(10)
-    controle.criaParticao(2)
-    controle.criaParticao(5)
-    controle.criaParticao(3)
-
-    controle.criarProcesso( 1,'cmd', 5)
-    controle.criarProcesso( 2,'sh', 3)
-
-    controle.calculaTamMaiorParticao()
-
-    saida.inprimeMemoria(memoria)
-
-    controle.proxPasso()
-    controle.proxPasso()
-
-    saida.inprimeMemoria(memoria)
-    
-    pass
-
-main()

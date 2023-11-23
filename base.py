@@ -46,13 +46,20 @@ class TipoAlocacao():
         def aloca(self) -> bool:
             pass
 
-# Detecção defragmentação interna/externa
+# Detecção defragmentação externa
+# Para enviar processo para o swap
 class Alocador:
     def __init__( self, algoritimo:str):
         self.algoritimoAlocacao = algoritimo
 
     def aloca(self, processo:Processo, particoes):
-        if self.algoritimoAlocacao == 'FSR':
+        if self.algoritimoAlocacao == 'PEA':
+            for par in particoes:
+                if par.processo == None and par.tamanho >= processo.tamanho:
+                    par.processo = processo
+                    break
+        #escolhe a partição que resultará na menor fragmentação esterna
+        if self.algoritimoAlocacao == 'MEA':
             for par in particoes:
                 if par.processo == None and par.tamanho >= processo.tamanho:
                     par.processo = processo
