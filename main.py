@@ -59,13 +59,13 @@ class Controle:
 def main():
 
     controle = Controle('MEA')
-    controle.iniciaMemoria(10)
-    controle.criaParticao(2)
+    controle.iniciaMemoria(16)
+    controle.criaParticao(8)
     controle.criaParticao(5)
     controle.criaParticao(3)
 
     controle.criarProcesso( 1,'cmd', 5)
-    controle.criarProcesso( 2,'sh', 3)
+    controle.criarProcesso( 2, 'sh',3)
 
     controle.calculaTamMaiorParticao()
 

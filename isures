@@ -1,18 +1,33 @@
-principal
+principal--------------------------------------------------------------------------
 
 #realizar verificação se existe partição com tamanho suficiente ao processo
-#criar novo algolritmo para alocação de memoria mcom a melhor escolha
+
 #implementação do terceiro algoritimo de alocação
+
 #algoritimo liberador de swap
+
 #criar indicador de fragmentação externa
+
 #criar exibição de fragmentação interna
 
-bugs
+bugs-----------------------------------------------------------------------------------
 
 #algolritmo de melhor escolha 'MEA' está agindo como oalgoritimo de primeia escolha(PEA)
 
-opicional
+#erro aoatribuir indicadores de valores nas variaveis ex controle.criarProcesso( id=1,nome='cmd', tamanho=5) 
+
+# Saida -> if particoes[i].tamanho - processo.tamanho < menor_particao and Particao[i].processo == None:       
+#      ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#        TypeError: unsupported operand type(s) for -: 'int' and 'str'
+
+opicional-------------------------------------------------------------------------------------
 
 #criar interface de iteração com o usuario
+
 #Criar exibição grafica mais amistosa
+
 #Transferir a classe controle para um modulo separado
+
+resolvidos------------------------------------------------------------------------------------
+
+#criar novo algolritmo para alocação de memoria mcom a melhor escolha
