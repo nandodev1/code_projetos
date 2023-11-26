@@ -1,4 +1,4 @@
-
+from random import randint
 
 class Processo:
     def __init__( self, id:int, nome:str, tamanho:int):
@@ -54,16 +54,22 @@ class Alocador:
         self.algoritimoAlocacao = algoritimo
 
     def aloca(self, processo:Processo, particoes):
-        
+        alocado = False
         if self.algoritimoAlocacao == 'PEA':
             for par in particoes:
                 if par.processo == None and par.tamanho >= processo.tamanho:
                     par.processo = processo
-                    break
+                    alocado = True
+                    return alocado
         #escolhe a partição que resultará na menor fragmentação esterna
         if self.algoritimoAlocacao == 'MEA':
             melhorEscolha = self.particaoMath(particoes, processo)
-            particoes[melhorEscolha].processo = processo
+            #if none não houve memoria disponivel
+            if melhorEscolha != None:
+                particoes[melhorEscolha].processo = processo
+                return True
+            else:
+                return False
 
 
     def particaoMath(self, particoes, processo:Processo) -> int:
@@ -75,11 +81,29 @@ class Alocador:
             if sobraParticaoAtual >= 0 and sobraParticaoAtual < menor_particao and particoes[i].processo == None:
                 menor_particao = sobraParticaoAtual
                 particaoMelhor = i
-
-        return particaoMelhor      
-
-    def enviaSwap(self):
         pass
+        return particaoMelhor
+
+    def alocador( self, processo: Processo, particoes, swap):
+        alocacaoOk = self.aloca( processo, particoes)
+        if alocacaoOk != True:
+            self.enviaSwap( processo, particoes, swap)
+
+    def enviaSwap(self,processo:Processo, particoes, swap:list):
+        #Sorteia uma partição
+        while True:
+            particaoSortiada = randint( 0, len(particoes) - 1)
+            part:Particao = particoes[ particaoSortiada]
+            if part.tamanho >= processo.tamanho:
+                self.finalizaSwap( processo, part, swap)
+                break
+        pass
+
+    def finalizaSwap( self, processo, part:Particao, swap):
+            #envia para swap o 
+            swap.append( part.processo)
+            #substitui o processo
+            part.processo = processo
 
     def enviaMemoria(self):
         pass

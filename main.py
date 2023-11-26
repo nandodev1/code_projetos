@@ -45,7 +45,7 @@ class Controle:
 
     # Devolve falso caso houver algum erro
     def alocarProcesso(  self, processo: Processo, particoes) -> bool:
-        self.alocador.aloca( processo, particoes)
+        self.alocador.alocador( processo, particoes, swap)
 
     def proxPasso( self):
         #realiza alocação do processo emlista
@@ -58,23 +58,27 @@ class Controle:
 ###################################################################
 def main():
 
-    controle = Controle('MEA')
-    controle.iniciaMemoria(16)
-    controle.criaParticao(8)
+    controle = Controle( 'MEA')
+    controle.iniciaMemoria(10)
+    controle.criaParticao(2)
     controle.criaParticao(5)
     controle.criaParticao(3)
 
     controle.criarProcesso( 1,'cmd', 5)
     controle.criarProcesso( 2, 'sh',3)
+    controle.criarProcesso( 3, 'bash',2)
+    controle.criarProcesso( 4, 'cat',4)
 
     controle.calculaTamMaiorParticao()
 
-    saida.inprimeMemoria(memoria)
+    saida.inprimeMemoria(memoria, swap)
 
     controle.proxPasso()
     controle.proxPasso()
+    controle.proxPasso()
+    controle.proxPasso()
 
-    saida.inprimeMemoria(memoria)
+    saida.inprimeMemoria(memoria, swap)
     
     pass
 
