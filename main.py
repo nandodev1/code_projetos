@@ -74,10 +74,15 @@ def main():
     saida.inprimeMemoria(memoria, swap)
 
     controle.proxPasso()
-    controle.proxPasso()
-    controle.proxPasso()
-    controle.proxPasso()
+    saida.inprimeMemoria(memoria, swap)
 
+    controle.proxPasso()
+    saida.inprimeMemoria(memoria, swap)
+    
+    controle.proxPasso()
+    saida.inprimeMemoria(memoria, swap)
+    
+    controle.proxPasso()
     saida.inprimeMemoria(memoria, swap)
     
     pass

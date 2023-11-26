@@ -81,7 +81,6 @@ class Alocador:
             if sobraParticaoAtual >= 0 and sobraParticaoAtual < menor_particao and particoes[i].processo == None:
                 menor_particao = sobraParticaoAtual
                 particaoMelhor = i
-        pass
         return particaoMelhor
 
     def alocador( self, processo: Processo, particoes, swap):
